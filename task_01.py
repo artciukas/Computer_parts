@@ -10,7 +10,7 @@ Unit tests must be written for the methods.
 
 
 class ComputerPart():
-    def __init__(self, name, brand, price) -> None:
+    def __init__(self, name: str, brand: str, price: str) -> None:
         self.name = name
         self.brand = brand
         self.price = price
@@ -27,7 +27,7 @@ class ComputerPart():
 
 class Cpu(ComputerPart):
 
-    def __init__(self, name, brand, price, core_count, performance_core_clock, integrated_gpu) -> None:
+    def __init__(self, name: str, brand: str, price: str, core_count: str, performance_core_clock: str, integrated_gpu) -> None:
         super().__init__(name, brand, price)
         self.core_count = core_count
         self.performance_core_clock = performance_core_clock
@@ -49,7 +49,7 @@ class Cpu(ComputerPart):
     
     
 class Gpu(ComputerPart):
-    def __init__(self, name, brand, price, chipset, memory, core_clock) -> None:
+    def __init__(self, name: str, brand: str, price: str, chipset: str, memory: str, core_clock: str) -> None:
         super().__init__(name, brand, price)
         self.chipset = chipset
         self.memory = memory
