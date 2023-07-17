@@ -43,6 +43,10 @@ class Cpu(ComputerPart):
     def get_cpu_integrated_gpu_info(self) -> str:
         return self.integrated_gpu
     
+
+    def __repr__(self) -> str:
+        return f'CPU parameters are: {self.name}, {self.brand}, {self.integrated_gpu}, {self.core_count}, {self.performance_core_clock}: price: {self.price} eur.'
+    
     
 class Gpu(ComputerPart):
     def __init__(self, name, brand, price, chipset, memory, core_clock) -> None:
@@ -59,6 +63,9 @@ class Gpu(ComputerPart):
 
     def get_gpu_core_clock(self) -> str:
         return self.core_clock
+    
+    def __repr__(self) -> str:
+        return f'GPU prameters are: {self.name}, {self.brand}, {self.chipset}, {self.core_clock}: price: {self.price} eur.'
 
 
 
@@ -95,13 +102,16 @@ gpu1 = Gpu(name=gpu_part['name'],
             core_clock=gpu_part['core_clock']
         )
 
+print(cpu1)
+print('###########')
 print(cpu1.get_product_brand())
 print(cpu1.get_cpu_integrated_gpu_info())
+print('###########')
+print(gpu1)
 print('###########')
 print(gpu1.get_gpu_chipset())
 print(gpu1.get_gpu_memory())
 print('###########')
-print(cpu1)
 
 
 
