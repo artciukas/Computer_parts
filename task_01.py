@@ -10,7 +10,8 @@ Unit tests must be written for the methods.
 
 
 class ComputerPart():
-    def __init__(self, name: str, brand: str, price: str) -> None:
+    def __init__(self, id: int,name: str, brand: str, price: str) -> None:
+        self._id = id
         self.name = name
         self.brand = brand
         self.price = price
@@ -27,8 +28,8 @@ class ComputerPart():
 
 class Cpu(ComputerPart):
 
-    def __init__(self, name: str, brand: str, price: str, core_count: str, performance_core_clock: str, integrated_gpu) -> None:
-        super().__init__(name, brand, price)
+    def __init__(self, id: int, name: str, brand: str, price: str, core_count: str, performance_core_clock: str, integrated_gpu) -> None:
+        super().__init__(id, name, brand, price)
         self.core_count = core_count
         self.performance_core_clock = performance_core_clock
         self.integrated_gpu = integrated_gpu
@@ -49,8 +50,8 @@ class Cpu(ComputerPart):
     
     
 class Gpu(ComputerPart):
-    def __init__(self, name: str, brand: str, price: str, chipset: str, memory: str, core_clock: str) -> None:
-        super().__init__(name, brand, price)
+    def __init__(self, id: int, name: str, brand: str, price: str, chipset: str, memory: str, core_clock: str) -> None:
+        super().__init__(id, name, brand, price)
         self.chipset = chipset
         self.memory = memory
         self.core_clock = core_clock
@@ -69,7 +70,9 @@ class Gpu(ComputerPart):
 
 
 
-cpu_part = {'name': 'CPU', 
+cpu_part = {
+        'id': 15,
+        'name': 'CPU', 
         'brand': 'INTEL',
         'price': '1500', 
         'core_count': '16', 
@@ -78,6 +81,7 @@ cpu_part = {'name': 'CPU',
         }
 
 gpu_part = {
+        'id': 33,
         'name': 'GPU',
         'brand': 'MSI',
         'price': '3000',
@@ -86,7 +90,8 @@ gpu_part = {
         'core_clock': '1320 MHz'
 }
 
-cpu1 = Cpu(name=cpu_part['name'], 
+cpu1 = Cpu(id=cpu_part['id'],
+            name=cpu_part['name'], 
             brand=cpu_part['brand'], 
             price=cpu_part['price'], 
             core_count=cpu_part['core_count'],
@@ -94,7 +99,8 @@ cpu1 = Cpu(name=cpu_part['name'],
             integrated_gpu=cpu_part['integrated_gpu']
         )
 
-gpu1 = Gpu(name=gpu_part['name'], 
+gpu1 = Gpu(id=gpu_part['id'],
+            name=gpu_part['name'], 
             brand=gpu_part['brand'], 
             price=gpu_part['price'], 
             chipset=gpu_part['chipset'],
