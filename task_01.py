@@ -15,13 +15,13 @@ class ComputerPart():
         self.brand = brand
         self.price = price
 
-    def get_product_name(self):
+    def get_product_name(self) -> str:
         return self.name
     
-    def get_product_brand(self):
+    def get_product_brand(self) -> str:
         return self.brand
     
-    def get_product_price(self):
+    def get_product_price(self) -> str:
         return self.price
     
 
@@ -34,13 +34,13 @@ class Cpu(ComputerPart):
         self.integrated_gpu = integrated_gpu
 
 
-    def get_cpu_core_count(self):
+    def get_cpu_core_count(self) -> str:
         return self.core_count
     
-    def get_cpu_performance_core_clock_speed(self):
+    def get_cpu_performance_core_clock_speed(self) -> str:
         return self.performance_core_clock
 
-    def get_cpu_integrated_gpu_info(self):
+    def get_cpu_integrated_gpu_info(self) -> str:
         return self.integrated_gpu
     
     
@@ -51,13 +51,13 @@ class Gpu(ComputerPart):
         self.memory = memory
         self.core_clock = core_clock
 
-    def get_gpu_chipset(self):
+    def get_gpu_chipset(self) -> str:
         return self.chipset
     
-    def get_gpu_memory(self):
+    def get_gpu_memory(self) -> str:
         return self.memory
 
-    def get_gpu_core_clock(self):
+    def get_gpu_core_clock(self) -> str:
         return self.core_clock
 
 
@@ -80,19 +80,19 @@ gpu_part = {
 }
 
 cpu1 = Cpu(name=cpu_part['name'], 
-          brand=cpu_part['brand'], 
-          price=cpu_part['price'], 
-          core_count=cpu_part['core_count'],
-          performance_core_clock=cpu_part['performance_core_clock'],
-          integrated_gpu=cpu_part['integrated_gpu']
-          )
+            brand=cpu_part['brand'], 
+            price=cpu_part['price'], 
+            core_count=cpu_part['core_count'],
+            performance_core_clock=cpu_part['performance_core_clock'],
+            integrated_gpu=cpu_part['integrated_gpu']
+        )
 
 gpu1 = Gpu(name=gpu_part['name'], 
-          brand=gpu_part['brand'], 
-          price=gpu_part['price'], 
-          chipset=gpu_part['chipset'],
-          memory=gpu_part['memory'],
-          core_clock=gpu_part['core_clock']
+            brand=gpu_part['brand'], 
+            price=gpu_part['price'], 
+            chipset=gpu_part['chipset'],
+            memory=gpu_part['memory'],
+            core_clock=gpu_part['core_clock']
         )
 
 print(cpu1.get_product_brand())
@@ -100,7 +100,8 @@ print(cpu1.get_cpu_integrated_gpu_info())
 print('###########')
 print(gpu1.get_gpu_chipset())
 print(gpu1.get_gpu_memory())
-
+print('###########')
+print(cpu1)
 
 
 
