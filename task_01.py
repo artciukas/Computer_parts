@@ -43,6 +43,20 @@ class ComputerPart():
         logging.info(f'function get_product_price was called!')
         return self.price
     
+    def update_price(self):
+        while True:
+            try:
+                new_price = int(input('Please enterupdated poduct price: '))
+                
+            except ValueError:
+                print(f'Input must be numbers')
+                logging.critical(f'Value error from input!')
+                continue
+                
+            self.price = new_price
+            logging.info(f'New {self.price} price was updated!')
+            return self.price
+    
 
 class Cpu(ComputerPart):
 
@@ -64,6 +78,7 @@ class Cpu(ComputerPart):
     def get_cpu_integrated_gpu_info(self) -> str:
         logging.info(f'function get_cpu_integrated_gpu_info was called!')
         return self.integrated_gpu
+
     
 
     def __repr__(self) -> str:
@@ -142,6 +157,8 @@ print('###########')
 print(gpu1.get_gpu_chipset())
 print(gpu1.get_gpu_memory())
 print('###########')
+print(cpu1.update_price())
+print(cpu1)
 
 
 
