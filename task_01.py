@@ -23,7 +23,7 @@ logging.basicConfig(level=logging.DEBUG,filename='data.log', filemode='a', forma
 
 
 class ComputerPart():
-    def __init__(self, id: int,name: str, brand: str, price: str) -> None:
+    def __init__(self, id: int,name: str, brand: str, price: int) -> None:
         self._id = id
         self.name = name
         self.brand = brand
@@ -39,11 +39,11 @@ class ComputerPart():
         logging.info(f'function get_product_brand was called!')
         return self.brand
     
-    def get_product_price(self) -> str:
+    def get_product_price(self) -> int:
         logging.info(f'function get_product_price was called!')
         return self.price
     
-    def update_price(self):
+    def update_price(self) -> int:
         while True:
             try:
                 new_price = int(input('Please enterupdated poduct price: '))
@@ -60,7 +60,7 @@ class ComputerPart():
 
 class Cpu(ComputerPart):
 
-    def __init__(self, id: int, name: str, brand: str, price: str, core_count: str, performance_core_clock: str, integrated_gpu) -> None:
+    def __init__(self, id: int, name: str, brand: str, price: int, core_count: str, performance_core_clock: str, integrated_gpu) -> None:
         super().__init__(id, name, brand, price)
         self.core_count = core_count
         self.performance_core_clock = performance_core_clock
@@ -86,7 +86,7 @@ class Cpu(ComputerPart):
     
     
 class Gpu(ComputerPart):
-    def __init__(self, id: int, name: str, brand: str, price: str, chipset: str, memory: str, core_clock: str) -> None:
+    def __init__(self, id: int, name: str, brand: str, price: int, chipset: str, memory: str, core_clock: str) -> None:
         super().__init__(id, name, brand, price)
         self.chipset = chipset
         self.memory = memory
@@ -113,7 +113,7 @@ cpu_part = {
         'id': 15,
         'name': 'CPU', 
         'brand': 'INTEL',
-        'price': '1500', 
+        'price': 1500, 
         'core_count': '16', 
         'performance_core_clock': '3.4 GHz', 
         'integrated_gpu': 'Intel UHD Graphics 770'
@@ -123,7 +123,7 @@ gpu_part = {
         'id': 33,
         'name': 'GPU',
         'brand': 'MSI',
-        'price': '3000',
+        'price': 3000,
         'chipset': 'GeForce RTX 3060',
         'memory' : '12GB',
         'core_clock': '1320 MHz'
