@@ -8,6 +8,19 @@ Unit tests must be written for the methods.
 
 """
 
+"""
+Phase 2: Add logging to all necessary functionality to see the data flow (with logger config.).
+Add exception handling , describe your own exceptions if necessary. 
+Create functions that would update current datasets (database). 
+Add functions that would parse durrent datasets(database) by specific parameters (CPU name = 'AMD') 
+Use  List, Dict comprehentions to get parsed data.
+"""
+
+
+import logging
+
+logging.basicConfig(level=logging.DEBUG,filename='data.log', filemode='a', format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', datefmt='%d/%m/%Y %H:%M:%S')
+
 
 class ComputerPart():
     def __init__(self, id: int,name: str, brand: str, price: str) -> None:
@@ -15,14 +28,19 @@ class ComputerPart():
         self.name = name
         self.brand = brand
         self.price = price
+        
+        
 
     def get_product_name(self) -> str:
+        logging.info(f'function get_product_name was called!')
         return self.name
     
     def get_product_brand(self) -> str:
+        logging.info(f'function get_product_brand was called!')
         return self.brand
     
     def get_product_price(self) -> str:
+        logging.info(f'function get_product_price was called!')
         return self.price
     
 
@@ -36,12 +54,15 @@ class Cpu(ComputerPart):
 
 
     def get_cpu_core_count(self) -> str:
+        logging.info(f'function get_cpu_core_count was called!')
         return self.core_count
     
     def get_cpu_performance_core_clock_speed(self) -> str:
+        logging.info(f'function get_cpu_performance_core_clock_speed was called!')
         return self.performance_core_clock
 
     def get_cpu_integrated_gpu_info(self) -> str:
+        logging.info(f'function get_cpu_integrated_gpu_info was called!')
         return self.integrated_gpu
     
 
@@ -57,12 +78,15 @@ class Gpu(ComputerPart):
         self.core_clock = core_clock
 
     def get_gpu_chipset(self) -> str:
+        logging.info(f'function get_gpu_chipset was called!')
         return self.chipset
     
     def get_gpu_memory(self) -> str:
+        logging.info(f'function get_gpu_memory was called!')
         return self.memory
 
     def get_gpu_core_clock(self) -> str:
+        logging.info(f'function get_gpu_core_clock was called!')
         return self.core_clock
     
     def __repr__(self) -> str:
@@ -118,6 +142,7 @@ print('###########')
 print(gpu1.get_gpu_chipset())
 print(gpu1.get_gpu_memory())
 print('###########')
+
 
 
 
