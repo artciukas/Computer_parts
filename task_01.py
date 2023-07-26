@@ -16,6 +16,10 @@ Add functions that would parse durrent datasets(database) by specific parameters
 Use  List, Dict comprehentions to get parsed data.
 """
 
+"""
+
+"""
+
 
 import logging
 
@@ -65,7 +69,7 @@ class Cpu(ComputerPart):
         self.core_count = core_count
         self.performance_core_clock = performance_core_clock
         self.integrated_gpu = integrated_gpu
-
+        
 
     def get_cpu_core_count(self) -> str:
         logging.info(f'function get_cpu_core_count was called!')
@@ -78,9 +82,7 @@ class Cpu(ComputerPart):
     def get_cpu_integrated_gpu_info(self) -> str:
         logging.info(f'function get_cpu_integrated_gpu_info was called!')
         return self.integrated_gpu
-
     
-
     def __repr__(self) -> str:
         return f'CPU parameters are: {self.name}, {self.brand}, {self.integrated_gpu}, {self.core_count}, {self.performance_core_clock}: price: {self.price} eur.'
     
@@ -109,57 +111,8 @@ class Gpu(ComputerPart):
 
 
 
-cpu_part = {
-        'id': 15,
-        'name': 'CPU', 
-        'brand': 'INTEL',
-        'price': 1500, 
-        'core_count': '16', 
-        'performance_core_clock': '3.4 GHz', 
-        'integrated_gpu': 'Intel UHD Graphics 770'
-        }
-
-gpu_part = {
-        'id': 33,
-        'name': 'GPU',
-        'brand': 'MSI',
-        'price': 3000,
-        'chipset': 'GeForce RTX 3060',
-        'memory' : '12GB',
-        'core_clock': '1320 MHz'
-}
-
-cpu1 = Cpu(id=cpu_part['id'],
-            name=cpu_part['name'], 
-            brand=cpu_part['brand'], 
-            price=cpu_part['price'], 
-            core_count=cpu_part['core_count'],
-            performance_core_clock=cpu_part['performance_core_clock'],
-            integrated_gpu=cpu_part['integrated_gpu']
-        )
-
-gpu1 = Gpu(id=gpu_part['id'],
-            name=gpu_part['name'], 
-            brand=gpu_part['brand'], 
-            price=gpu_part['price'], 
-            chipset=gpu_part['chipset'],
-            memory=gpu_part['memory'],
-            core_clock=gpu_part['core_clock']
-        )
-
-print(cpu1)
-print('###########')
-print(cpu1.get_product_brand())
-print(cpu1.get_cpu_integrated_gpu_info())
-print('###########')
-print(gpu1)
-print('###########')
-print(gpu1.get_gpu_chipset())
-print(gpu1.get_gpu_memory())
-print('###########')
-print(cpu1.update_price())
-print(cpu1)
-
+if __name__ == '__main__':
+    pass
 
 
 
